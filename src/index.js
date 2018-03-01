@@ -1,3 +1,4 @@
+
 module.exports = function check(str, bracketsConfig) {
   var open = [],
     close = [],
@@ -12,8 +13,11 @@ module.exports = function check(str, bracketsConfig) {
   bracketsConfig.forEach(function(item, j, str) {
     bracketsConfig.forEach(function(item, z, open) {
 
-      if(str[j] == open[z]) { buf.push(z); check++; }
-      if(str[j] == close[z]) { if(z == buf.pop()) { check--; } else { return false; } }
+      if(str[j] == open[z]) { buf.push(z); check ++; }
+      if(str[j] == close[z]) { 
+        if(z == buf.pop()) { check--; }
+        else return false;
+      }
 
     });
 
